@@ -7,6 +7,8 @@ export default {
         adopet: {
           primary: '#0D9488',
           'primary-dark': '#0F766E',
+          orange: '#D97706',
+          'orange-light': '#F59E0B',
           accent: '#E11D48',
           background: '#E5EDEA',
           surface: '#D4E2DD',
@@ -37,7 +39,7 @@ export default {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'hero-pattern':
-          'radial-gradient(circle at 20% 80%, rgba(13, 148, 136, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(13, 148, 136, 0.06) 0%, transparent 50%)',
+          'radial-gradient(circle at 20% 80%, rgba(13, 148, 136, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(217, 119, 6, 0.06) 0%, transparent 50%)',
       },
     },
   },

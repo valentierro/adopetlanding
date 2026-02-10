@@ -31,7 +31,7 @@ const audiences = [
       'Planos para clínicas e pet shops',
     ],
     cta: 'Seja parceiro',
-    gradient: 'from-amber-500 to-amber-600',
+    gradient: 'from-adopet-orange to-adopet-orange-light',
   },
 ];
 

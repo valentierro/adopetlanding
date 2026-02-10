@@ -11,13 +11,14 @@ export function Hero() {
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-adopet-text-primary tracking-tight leading-tight mb-4">
           Adoção responsável
           <br />
-          <span className="text-adopet-primary">na palma da mão</span>
+          <span className="text-adopet-orange">na palma da mão</span>
         </h1>
         <p className="text-lg md:text-xl text-adopet-text-secondary max-w-xl mx-auto mb-6">
           Conectamos quem quer adotar um pet com tutores e instituições que buscam um lar responsável. Feed, mapa, chat e parceiros — tudo em um app.
         </p>
-        <p className="text-base md:text-lg text-adopet-primary font-semibold mb-10">
-          Grátis: crie conta, anuncie pets para adoção e adote — sem custo.
+        <p className="text-base md:text-lg font-semibold mb-10">
+          <span className="text-adopet-primary">Grátis: </span>
+          <span className="text-adopet-orange">crie conta, anuncie pets para adoção e adote — sem custo.</span>
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a

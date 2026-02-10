@@ -12,7 +12,7 @@ export function Partners() {
           <span className="px-4 py-2 rounded-full bg-adopet-card/80 border border-adopet-primary/20 font-medium">
             Clínicas veterinárias
           </span>
-          <span className="px-4 py-2 rounded-full bg-adopet-card/80 border border-adopet-primary/20 font-medium">
+          <span className="px-4 py-2 rounded-full bg-adopet-card/80 border border-adopet-orange/30 font-medium text-adopet-text-primary">
             Pet shops
           </span>
           <span className="px-4 py-2 rounded-full bg-adopet-card/80 border border-adopet-primary/20 font-medium">

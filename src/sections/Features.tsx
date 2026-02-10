@@ -47,7 +47,7 @@ export function Features() {
           {features.map((feature, i) => (
             <div
               key={feature.title}
-              className="bg-adopet-card rounded-2xl p-6 md:p-8 shadow-sm border border-adopet-header/50 hover:shadow-md hover:border-adopet-primary/20 transition-all duration-300"
+              className="bg-adopet-card rounded-2xl p-6 md:p-8 shadow-sm border border-adopet-header/50 hover:shadow-md hover:border-adopet-primary/20 hover:border-adopet-orange/30 transition-all duration-300"
               style={{ animationDelay: `${i * 80}ms` }}
             >
               <div className="text-3xl mb-4">{feature.icon}</div>
