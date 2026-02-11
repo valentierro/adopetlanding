@@ -12,10 +12,7 @@ import { Contato } from './sections/Contato';
 import { Footer } from './sections/Footer';
 import { TermosPage } from './pages/Termos';
 import { PrivacidadePage } from './pages/Privacidade';
-<<<<<<< HEAD
 import { ExclusaoContaPage } from './pages/ExclusaoConta';
-=======
->>>>>>> ed7b41a5dc8a2d60fda7e8c95611d7132ea236c1
 
 function LandingContent() {
   return (
@@ -47,10 +44,7 @@ export default function App() {
 
   if (hash === '#termos') return <TermosPage />;
   if (hash === '#privacidade') return <PrivacidadePage />;
-<<<<<<< HEAD
   if (hash === '#exclusao-conta') return <ExclusaoContaPage />;
-=======
->>>>>>> ed7b41a5dc8a2d60fda7e8c95611d7132ea236c1
   return (
     <div className="min-h-screen">
       <LandingContent />
