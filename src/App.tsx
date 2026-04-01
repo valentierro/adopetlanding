@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { PartnershipModalProvider } from './context/PartnershipModalContext';
 import { Header } from './components/Header';
 import { BackToTop } from './components/BackToTop';
 import { Hero } from './sections/Hero';
@@ -18,7 +19,7 @@ import { PartnerRedirectPage } from './pages/PartnerRedirect';
 
 function LandingContent() {
   return (
-    <>
+    <PartnershipModalProvider>
       <Header />
       <Hero />
       <AppScreens />
@@ -30,7 +31,7 @@ function LandingContent() {
       <Contato />
       <Footer />
       <BackToTop />
-    </>
+    </PartnershipModalProvider>
   );
 }
 

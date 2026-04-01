@@ -1,4 +1,8 @@
+import { usePartnershipModal } from '../context/PartnershipModalContext';
+
 export function Hero() {
+  const { openPartnershipModal } = usePartnershipModal();
+
   return (
     <header className="relative min-h-[90vh] flex flex-col items-center justify-center px-6 pt-20 pb-24 overflow-hidden bg-hero-pattern bg-adopet-background">
       <div className="absolute inset-0 bg-gradient-to-b from-adopet-header/30 to-transparent pointer-events-none" />
@@ -16,10 +20,28 @@ export function Hero() {
         <p className="text-lg md:text-xl text-adopet-text-secondary max-w-xl mx-auto mb-6">
           Conectamos quem quer adotar um pet com tutores e instituições que buscam um lar responsável. Feed, mapa, chat e parceiros — tudo em um app.
         </p>
-        <p className="text-base md:text-lg font-semibold mb-10">
+        <p className="text-base md:text-lg font-semibold mb-6">
           <span className="text-adopet-primary">Grátis: </span>
           <span className="text-adopet-orange">crie conta, anuncie pets para adoção e adote — sem custo.</span>
         </p>
+        <div className="mb-8">
+          <button
+            type="button"
+            onClick={() => openPartnershipModal()}
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl border-2 border-adopet-orange text-adopet-orange font-semibold hover:bg-adopet-orange/10 transition-colors shadow-sm"
+          >
+            <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+              />
+            </svg>
+            Sou ONG ou abrigo — solicitar parceria
+          </button>
+          <p className="mt-2 text-sm text-adopet-text-secondary">Mesmo formulário do aplicativo Adopet.</p>
+        </div>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
           <a
             href="https://play.google.com/store/apps/details?id=br.com.adopet.app"

@@ -1,12 +1,10 @@
-import { useState } from 'react';
-import { PartnershipRequestModal } from '../components/PartnershipRequestModal';
+import { usePartnershipModal } from '../context/PartnershipModalContext';
 
 export function Partners() {
-  const [partnershipOpen, setPartnershipOpen] = useState(false);
+  const { openPartnershipModal } = usePartnershipModal();
 
   return (
     <section className="py-20 md:py-28 px-6 bg-adopet-header/60">
-      <PartnershipRequestModal open={partnershipOpen} onClose={() => setPartnershipOpen(false)} />
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-display font-bold text-adopet-text-primary mb-4">
           Parceiros Adopet
@@ -17,7 +15,7 @@ export function Partners() {
         <div className="mb-10">
           <button
             type="button"
-            onClick={() => setPartnershipOpen(true)}
+            onClick={() => openPartnershipModal()}
             className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-adopet-primary text-white font-semibold hover:bg-adopet-primary-dark transition-colors shadow-md"
           >
             <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>

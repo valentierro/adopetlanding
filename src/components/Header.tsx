@@ -1,11 +1,37 @@
+import { usePartnershipModal } from '../context/PartnershipModalContext';
+
 export function Header() {
+  const { openPartnershipModal } = usePartnershipModal();
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-adopet-background/95 backdrop-blur-sm border-b border-adopet-header/50">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2">
           <img src="/logo.png" alt="Adopet" className="h-10 w-auto" />
         </a>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <button
+            type="button"
+            onClick={() => openPartnershipModal()}
+            className="sm:hidden inline-flex items-center justify-center p-2 rounded-xl border border-adopet-orange/30 text-adopet-orange hover:bg-adopet-orange/10 transition-colors"
+            aria-label="Solicitar parceria ONG"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+              />
+            </svg>
+          </button>
+          <button
+            type="button"
+            onClick={() => openPartnershipModal()}
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-adopet-orange/30 text-adopet-orange text-sm font-semibold hover:bg-adopet-orange/10 transition-colors"
+          >
+            Parceria ONG
+          </button>
           <a
             href="#como-funciona"
             className="text-adopet-text-secondary hover:text-adopet-primary font-medium transition-colors hidden sm:inline"
