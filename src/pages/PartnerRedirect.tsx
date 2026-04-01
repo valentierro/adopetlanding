@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { trackPlayStoreClick } from '../analytics/gtag';
 
 const SCHEME = 'adopet';
 const ANDROID_PACKAGE = 'br.com.adopet.app';
@@ -67,6 +68,7 @@ export function PartnerRedirectPage({ path }: PartnerRedirectProps) {
       </p>
       <a
         href={PLAY_STORE_URL}
+        onClick={() => trackPlayStoreClick('partner_redirect')}
         style={{
           fontSize: 14,
           color: '#64748b',

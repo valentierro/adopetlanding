@@ -1,15 +1,19 @@
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from 'react';
 import { PartnershipRequestModal } from '../components/PartnershipRequestModal';
+import { trackPartnershipCtaClick } from '../analytics/gtag';
 
 type Ctx = {
-  openPartnershipModal: () => void;
+  openPartnershipModal: (source?: string) => void;
 };
 
 const PartnershipModalContext = createContext<Ctx | null>(null);
 
 export function PartnershipModalProvider({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
-  const openPartnershipModal = useCallback(() => setOpen(true), []);
+  const openPartnershipModal = useCallback((source?: string) => {
+    trackPartnershipCtaClick(source ?? 'unknown');
+    setOpen(true);
+  }, []);
   const value = useMemo(() => ({ openPartnershipModal }), [openPartnershipModal]);
 
   return (

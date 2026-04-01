@@ -1,3 +1,5 @@
+import { trackPlayStoreClick } from '../analytics/gtag';
+
 export function Footer() {
   return (
     <footer className="py-12 px-6 bg-adopet-text-primary text-white/90">
@@ -29,6 +31,7 @@ export function Footer() {
             href="https://play.google.com/store/apps/details?id=br.com.adopet.app"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackPlayStoreClick('footer')}
             className="hover:text-white transition-colors"
           >
             Google Play

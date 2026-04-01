@@ -1,3 +1,5 @@
+import { trackPlayStoreClick } from '../analytics/gtag';
+
 const CONTACT_EMAIL = 'contato@appadopet.com.br';
 
 const IconHeart = () => (
@@ -178,6 +180,7 @@ export function ApoiePage() {
               href="https://play.google.com/store/apps/details?id=br.com.adopet.app"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackPlayStoreClick('apoie')}
               className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-2xl bg-adopet-orange text-white font-semibold text-lg shadow-xl hover:bg-adopet-orange-light transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
               <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden>

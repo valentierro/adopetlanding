@@ -1,3 +1,5 @@
+import { trackPlayStoreClick } from '../analytics/gtag';
+
 export function CTA() {
   return (
     <section className="py-20 md:py-28 px-6 bg-adopet-primary">
@@ -13,6 +15,7 @@ export function CTA() {
             href="https://play.google.com/store/apps/details?id=br.com.adopet.app"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackPlayStoreClick('cta_section')}
             className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-2xl bg-adopet-orange text-white font-semibold text-lg shadow-xl hover:bg-adopet-orange-light transition-colors hover:scale-[1.02] active:scale-[0.98]"
           >
             <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden>

@@ -1,3 +1,4 @@
+import { trackPlayStoreClick } from '../analytics/gtag';
 import { usePartnershipModal } from '../context/PartnershipModalContext';
 
 export function Hero() {
@@ -27,7 +28,7 @@ export function Hero() {
         <div className="mb-8">
           <button
             type="button"
-            onClick={() => openPartnershipModal()}
+            onClick={() => openPartnershipModal('hero')}
             className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl border-2 border-adopet-orange text-adopet-orange font-semibold hover:bg-adopet-orange/10 transition-colors shadow-sm"
           >
             <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
@@ -47,6 +48,7 @@ export function Hero() {
             href="https://play.google.com/store/apps/details?id=br.com.adopet.app"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackPlayStoreClick('hero')}
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-adopet-primary hover:bg-adopet-primary-dark text-white font-semibold text-lg shadow-lg shadow-adopet-primary/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
           >
             <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden>

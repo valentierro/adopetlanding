@@ -15,7 +15,7 @@ export function Partners() {
         <div className="mb-10">
           <button
             type="button"
-            onClick={() => openPartnershipModal()}
+            onClick={() => openPartnershipModal('partners_section')}
             className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-adopet-primary text-white font-semibold hover:bg-adopet-primary-dark transition-colors shadow-md"
           >
             <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
