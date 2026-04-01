@@ -27,6 +27,11 @@ Saída em `dist/`. Pode ser implantada na Vercel, Netlify ou qualquer host está
 2. Build command: `pnpm build`
 3. Output directory: `dist`
 4. Instale as dependências com pnpm (Vercel detecta automaticamente).
+5. **Variável de ambiente:** `VITE_API_URL` — URL base da API (ex.: `https://adopet-api-six.vercel.app`), sem barra no final. Se omitida, o código usa esse default. A API precisa permitir CORS para o domínio da landing (`appadopet.com.br` já está na lista em `apps/api` do monorepo Adopet).
+
+### Solicitação de parceria (ONG) na landing
+
+O botão na seção **Parceiros** abre um modal que chama `POST /v1/public/partnership-request` — o mesmo fluxo do app (registro em `PartnershipRequest`, e-mail para `parcerias@appadopet.com.br`, notificação admin).
 
 ## Links
 
