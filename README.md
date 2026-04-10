@@ -22,4 +22,5 @@ Saída em `dist/`. Pode ser implantada na Vercel, Netlify ou qualquer host está
 ## Links
 
 - **Google Play:** `https://play.google.com/store/apps/details?id=br.com.adopet.app`
+- **App Store (iOS):** `https://apps.apple.com/br/app/adopet-adoção-responsável/id6761636088` — também em `src/constants/stores.ts`
 - Atualize os links de Política de privacidade e Termos de uso no `Footer.tsx` quando tiver as URLs públicas.

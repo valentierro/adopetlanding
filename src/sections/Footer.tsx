@@ -1,3 +1,5 @@
+import { IOS_APP_STORE_URL, PLAY_STORE_URL } from '../constants/stores';
+
 export function Footer() {
   return (
     <footer className="py-12 px-6 bg-adopet-text-primary text-white/90">
@@ -26,12 +28,20 @@ export function Footer() {
             Termos de uso
           </a>
           <a
-            href="https://play.google.com/store/apps/details?id=br.com.adopet.app"
+            href={PLAY_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition-colors"
           >
             Google Play
+          </a>
+          <a
+            href={IOS_APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            App Store
           </a>
         </nav>
       </div>
