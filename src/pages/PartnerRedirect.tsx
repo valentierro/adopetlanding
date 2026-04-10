@@ -1,9 +1,8 @@
 import { useEffect, useRef } from 'react';
-import { trackPlayStoreClick } from '../analytics/gtag';
+import { trackAppStoreClick, trackPlayStoreClick } from '../analytics/gtag';
+import { ANDROID_PACKAGE, IOS_APP_STORE_URL, PLAY_STORE_URL } from '../constants/stores';
 
 const SCHEME = 'adopet';
-const ANDROID_PACKAGE = 'br.com.adopet.app';
-const PLAY_STORE_URL = `https://play.google.com/store/apps/details?id=${ANDROID_PACKAGE}`;
 
 type PartnerRedirectProps = {
   path: 'partner-success' | 'partner-cancel';
@@ -64,19 +63,32 @@ export function PartnerRedirectPage({ path }: PartnerRedirectProps) {
         Toque aqui para abrir o app
       </a>
       <p style={{ fontSize: 14, color: '#64748b', textAlign: 'center', marginBottom: 16 }}>
-        Se aparecer &quot;endereço inválido&quot;, use o app instalado da Play Store (não use Expo Go para testar).
+        Se aparecer &quot;endereço inválido&quot;, use o app instalado da loja (não use Expo Go para testar).
       </p>
-      <a
-        href={PLAY_STORE_URL}
-        onClick={() => trackPlayStoreClick('partner_redirect')}
-        style={{
-          fontSize: 14,
-          color: '#64748b',
-          textDecoration: 'underline',
-        }}
-      >
-        Abrir Adopet na Play Store
-      </a>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'center' }}>
+        <a
+          href={PLAY_STORE_URL}
+          onClick={() => trackPlayStoreClick('partner_redirect')}
+          style={{
+            fontSize: 14,
+            color: '#64748b',
+            textDecoration: 'underline',
+          }}
+        >
+          Abrir na Google Play
+        </a>
+        <a
+          href={IOS_APP_STORE_URL}
+          onClick={() => trackAppStoreClick('partner_redirect')}
+          style={{
+            fontSize: 14,
+            color: '#64748b',
+            textDecoration: 'underline',
+          }}
+        >
+          Abrir na App Store
+        </a>
+      </div>
     </div>
   );
 }

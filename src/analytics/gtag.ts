@@ -30,6 +30,11 @@ export function trackPlayStoreClick(location: PlayStoreClickLocation): void {
   gtagEvent('play_store_click', { location });
 }
 
+/** Clique em link para a App Store (instalação iOS). */
+export function trackAppStoreClick(location: PlayStoreClickLocation): void {
+  gtagEvent('app_store_click', { location });
+}
+
 /** Clique para abrir o modal de solicitação de parceria ONG. */
 export function trackPartnershipCtaClick(location: PartnershipCtaLocation | string): void {
   gtagEvent('partnership_cta_click', { location: String(location) });

@@ -1,4 +1,5 @@
-import { trackPlayStoreClick } from '../analytics/gtag';
+import { trackAppStoreClick, trackPlayStoreClick } from '../analytics/gtag';
+import { IOS_APP_STORE_URL, PLAY_STORE_URL } from '../constants/stores';
 
 export function Footer() {
   return (
@@ -28,13 +29,22 @@ export function Footer() {
             Termos de uso
           </a>
           <a
-            href="https://play.google.com/store/apps/details?id=br.com.adopet.app"
+            href={PLAY_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackPlayStoreClick('footer')}
             className="hover:text-white transition-colors"
           >
             Google Play
+          </a>
+          <a
+            href={IOS_APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackAppStoreClick('footer')}
+            className="hover:text-white transition-colors"
+          >
+            App Store
           </a>
         </nav>
       </div>

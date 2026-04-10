@@ -36,4 +36,5 @@ O botão na seção **Parceiros** abre um modal que chama `POST /v1/public/partn
 ## Links
 
 - **App na Google Play:** [play.google.com/store/apps/details?id=br.com.adopet.app](https://play.google.com/store/apps/details?id=br.com.adopet.app)
+- **App na App Store (iOS):** [apps.apple.com/br/app/adopet-adoção-responsável/id6761636088](https://apps.apple.com/br/app/adopet-adoção-responsável/id6761636088) — fonte única em `src/constants/stores.ts`
 - Atualize os links de Política de privacidade e Termos de uso no `src/sections/Footer.tsx` quando tiver as URLs públicas.
