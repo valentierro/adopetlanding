@@ -7,6 +7,7 @@ import { AppScreens } from './sections/AppScreens';
 import { Features } from './sections/Features';
 import { ForWho } from './sections/ForWho';
 import { Partners } from './sections/Partners';
+import { PartnerForm } from './sections/PartnerForm';
 import { FAQ } from './sections/FAQ';
 import { CTA } from './sections/CTA';
 import { Contato } from './sections/Contato';
@@ -26,6 +27,7 @@ function LandingContent() {
       <Features />
       <ForWho />
       <Partners />
+      <PartnerForm />
       <FAQ />
       <CTA />
       <Contato />

@@ -1,86 +1,149 @@
-import { trackAppStoreClick, trackPlayStoreClick } from '../analytics/gtag';
-import { IOS_APP_STORE_URL, PLAY_STORE_URL } from '../constants/stores';
-import { usePartnershipModal } from '../context/PartnershipModalContext';
+import { FloatingPaw, FloatingHeart } from '../components/Decorations';
+import { StoreBadges } from '../components/StoreBadges';
 
 export function Hero() {
-  const { openPartnershipModal } = usePartnershipModal();
 
   return (
-    <header className="relative min-h-[90vh] flex flex-col items-center justify-center px-6 pt-20 pb-24 overflow-hidden bg-hero-pattern bg-adopet-background">
-      <div className="absolute inset-0 bg-gradient-to-b from-adopet-header/30 to-transparent pointer-events-none" />
-      <div className="relative z-10 max-w-2xl mx-auto text-center animate-fade-in">
-        <img
-          src="/logo.png"
-          alt="Adopet"
-          className="h-20 md:h-24 w-auto mx-auto mb-6 drop-shadow-sm object-contain"
-        />
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-adopet-text-primary tracking-tight leading-tight mb-4">
-          Adoção responsável
+    <header
+      className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-20 overflow-hidden"
+      style={{ background: '#04100E' }}
+    >
+      {/* Teal glow top-center */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(15,186,158,0.22) 0%, transparent 65%)' }} />
+      {/* Orange glow bottom-right */}
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 100% 100%, rgba(244,115,42,0.12) 0%, transparent 60%)' }} />
+      {/* Subtle grid */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        style={{ backgroundImage: 'linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px)', backgroundSize: '64px 64px' }} />
+
+      {/* Floating decorative elements */}
+      <FloatingPaw  x="5%"   y="12%"  size={40} opacity={0.06} rotation={-20} color="#0FBA9E" />
+      <FloatingPaw  x="88%"  y="8%"   size={28} opacity={0.05} rotation={25}  color="#0FBA9E" />
+      <FloatingPaw  x="92%"  y="55%"  size={48} opacity={0.04} rotation={15}  color="#34D4B8" />
+      <FloatingPaw  x="2%"   y="65%"  size={32} opacity={0.05} rotation={-35} color="#34D4B8" />
+      <FloatingPaw  x="78%"  y="80%"  size={24} opacity={0.04} rotation={10}  color="#0FBA9E" />
+      <FloatingHeart x="14%"  y="28%"  size={22} opacity={0.07} rotation={12}  color="#F4732A" />
+      <FloatingHeart x="82%"  y="35%"  size={18} opacity={0.06} rotation={-8}  color="#F4732A" />
+      <FloatingHeart x="7%"   y="82%"  size={26} opacity={0.05} rotation={20}  color="#F4732A" />
+      <FloatingHeart x="95%"  y="75%"  size={16} opacity={0.05} rotation={-15} color="#F99060" />
+      {/* heart-paw watermark — large, bottom right */}
+      <img
+        src="/icons/heart-paw.png"
+        alt=""
+        aria-hidden
+        className="absolute bottom-12 right-0 w-64 md:w-80 pointer-events-none select-none hidden md:block"
+        style={{ opacity: 0.055, transform: 'rotate(12deg)' }}
+      />
+      {/* pin-adocao floating top right */}
+      <img
+        src="/icons/pin-adocao.png"
+        alt=""
+        aria-hidden
+        className="absolute top-28 right-10 w-16 pointer-events-none select-none animate-float hidden md:block"
+        style={{ opacity: 0.12 }}
+      />
+
+      <div className="relative z-10 max-w-3xl mx-auto text-center">
+
+        {/* Pill badge */}
+        <div
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-8 animate-fade-in"
+          style={{ background: 'rgba(15,186,158,0.1)', border: '1px solid rgba(15,186,158,0.25)', color: '#34D4B8' }}
+        >
+          <span className="w-2 h-2 rounded-full bg-adopet-primary animate-ping-slow" />
+          100% gratuito — cadastro, anúncio e adoção
+        </div>
+
+        {/* Logo */}
+        <div className="flex justify-center mb-6 animate-fade-in" style={{ animationDelay: '80ms' }}>
+          <img src="/logo.png" alt="Adopet" className="h-16 md:h-20 w-auto drop-shadow-lg" />
+        </div>
+
+        {/* H1 */}
+        <h1
+          className="text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight leading-[1.05] mb-6 animate-fade-in"
+          style={{ animationDelay: '150ms' }}
+        >
+          <span className="text-white">Adoção responsável</span>
           <br />
-          <span className="text-adopet-orange">na palma da mão</span>
+          <span className="text-grad-teal">na palma da mão</span>
         </h1>
-        <p className="text-lg md:text-xl text-adopet-text-secondary max-w-xl mx-auto mb-6">
-          Conectamos quem quer adotar um pet com tutores e instituições que buscam um lar responsável. Feed, mapa, chat e parceiros — tudo em um app.
+
+        {/* Subtitle */}
+        <p
+          className="text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in"
+          style={{ animationDelay: '220ms', color: '#C4DDD8' }}
+        >
+          Conectamos quem quer adotar um pet com tutores e instituições que buscam um lar responsável.
+          Feed, mapa, chat e parceiros —{' '}
+          <strong className="text-white font-semibold">tudo em um app.</strong>
         </p>
-        <p className="text-base md:text-lg font-semibold mb-6">
-          <span className="text-adopet-primary">Grátis: </span>
-          <span className="text-adopet-orange">crie conta, anuncie pets para adoção e adote — sem custo.</span>
-        </p>
-        <div className="mb-8">
-          <button
-            type="button"
-            onClick={() => openPartnershipModal('hero')}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl border-2 border-adopet-orange text-adopet-orange font-semibold hover:bg-adopet-orange/10 transition-colors shadow-sm"
+
+        {/* CTA buttons */}
+        <div
+          className="flex flex-col items-center gap-4 mb-6 animate-fade-in"
+          style={{ animationDelay: '300ms' }}
+        >
+          <StoreBadges location="hero" size="lg" />
+
+          <a
+            href="#parceiros"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl font-semibold text-base transition-all hover:scale-[1.02]"
+            style={{ border: '1px solid rgba(244,115,42,0.45)', color: '#F4732A' }}
           >
             <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
             </svg>
             Sou ONG ou abrigo — solicitar parceria
-          </button>
-          <p className="mt-2 text-sm text-adopet-text-secondary">Mesmo formulário do aplicativo Adopet.</p>
+          </a>
         </div>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
-          <a
-            href={PLAY_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackPlayStoreClick('hero')}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-adopet-primary hover:bg-adopet-primary-dark text-white font-semibold text-lg shadow-lg shadow-adopet-primary/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
-          >
-            <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-              <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.627L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.302-8.635-8.634z" />
-            </svg>
-            Baixar grátis na Google Play
-          </a>
-          <a
-            href={IOS_APP_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackAppStoreClick('hero')}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-[#1a1a1a] hover:bg-black text-white font-semibold text-lg shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
-          >
-            <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-            </svg>
-            Baixar grátis na App Store
-          </a>
-          <a
-            href="#como-funciona"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl border-2 border-adopet-primary text-adopet-primary font-semibold hover:bg-adopet-primary/10 transition-colors"
+
+        {/* Links row */}
+        <div
+          className="flex flex-wrap items-center justify-center gap-6 text-sm animate-fade-in"
+          style={{ animationDelay: '380ms' }}
+        >
+          <a href="#como-funciona" className="flex items-center gap-1.5 transition-colors" style={{ color: '#7AA39B' }}
+            onMouseEnter={e => (e.currentTarget.style.color = '#0FBA9E')}
+            onMouseLeave={e => (e.currentTarget.style.color = '#7AA39B')}
           >
             Ver como funciona
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
           </a>
+          <span style={{ color: '#163530' }}>•</span>
+          <span style={{ color: '#7AA39B' }}>Seus dados são tratados conforme a LGPD</span>
         </div>
-        <p className="mt-6 text-sm text-adopet-text-secondary">
-          Seus dados são tratados conforme a LGPD.
-        </p>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-adopet-surface to-transparent pointer-events-none" />
+
+      {/* Stats row */}
+      <div
+        className="relative z-10 mt-20 w-full max-w-lg mx-auto grid grid-cols-3 gap-4 animate-fade-in"
+        style={{ animationDelay: '460ms' }}
+      >
+        {[
+          { value: '100%', label: 'Gratuito' },
+          { value: 'iOS & Android', label: 'Disponível' },
+          { value: 'LGPD', label: 'Compliant' },
+        ].map((s) => (
+          <div
+            key={s.label}
+            className="rounded-2xl p-4 text-center"
+            style={{ background: '#081A17', border: '1px solid #163530' }}
+          >
+            <p className="text-base font-bold text-grad-teal">{s.value}</p>
+            <p className="text-xs mt-0.5" style={{ color: '#7AA39B' }}>{s.label}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+        style={{ background: 'linear-gradient(to top,#04100E,transparent)' }} />
     </header>
   );
 }

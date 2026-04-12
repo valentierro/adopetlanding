@@ -9,39 +9,58 @@ const SCREENS = [
   { src: '/screens/perfil.jpeg', label: 'Perfil' },
 ];
 
-const CARD_WIDTH = 160;
-const GAP = 60;
-const TRACK_OFFSET = SCREENS.length * CARD_WIDTH + (SCREENS.length - 1) * GAP;
+const CARD_W = 160;
+const GAP    = 60;
+const OFFSET = SCREENS.length * CARD_W + (SCREENS.length - 1) * GAP;
 
 export function AppScreens() {
   const items = [...SCREENS, ...SCREENS];
 
   return (
-    <section className="py-16 md:py-20 px-0 bg-adopet-background overflow-hidden">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-display font-bold text-adopet-text-primary mb-2 text-center px-4">
-          O app na prática
-        </h2>
-        <p className="text-adopet-text-secondary text-center mb-10 max-w-xl mx-auto px-4">
-          Feed, mapa, favoritos, chat e mais — tudo em um lugar.
-        </p>
-      </div>
-      <div className="relative w-full overflow-hidden">
+    <section className="py-20 md:py-28 overflow-hidden" style={{ background: '#04100E' }}>
+      {/* Header */}
+      <div className="max-w-6xl mx-auto px-6 mb-12 text-center">
         <div
-          className="flex gap-[60px] items-end justify-start w-max carousel-track"
-          style={{
-            animation: `carousel-scroll 50s linear infinite`,
-          }}
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-semibold mb-4"
+          style={{ background: 'rgba(15,186,158,0.1)', border: '1px solid rgba(15,186,158,0.2)', color: '#34D4B8' }}
+        >
+          O app na prática
+        </div>
+        <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-2">
+          Feed, mapa, favoritos, chat
+        </h2>
+        <p className="text-lg" style={{ color: '#A8C5BF' }}>e mais — tudo em um lugar</p>
+      </div>
+
+      {/* Carousel */}
+      <div className="relative w-full overflow-hidden">
+        <div className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
+          style={{ background: 'linear-gradient(to right,#04100E,transparent)' }} />
+        <div className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
+          style={{ background: 'linear-gradient(to left,#04100E,transparent)' }} />
+
+        <div
+          className="flex items-end justify-start w-max carousel-track"
+          style={{ gap: `${GAP}px`, animation: 'carousel-scroll 50s linear infinite' }}
         >
           {items.map(({ src, label }, i) => (
             <div
               key={`${label}-${i}`}
-              className="flex-shrink-0 flex flex-col items-center"
-              style={{ width: CARD_WIDTH }}
+              className="flex-shrink-0 flex flex-col items-center group"
+              style={{ width: CARD_W }}
             >
               <div
-                className="rounded-2xl overflow-hidden shadow-lg border border-adopet-header/50 bg-adopet-card w-full flex items-center justify-center"
-                style={{ aspectRatio: '9/19', maxHeight: 320 }}
+                className="rounded-2xl overflow-hidden w-full"
+                style={{
+                  aspectRatio: '9/19',
+                  maxHeight: 320,
+                  background: '#081A17',
+                  border: '1px solid #163530',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.6)',
+                  transition: 'border-color 0.3s',
+                }}
+                onMouseEnter={e => ((e.currentTarget as HTMLElement).style.borderColor = 'rgba(15,186,158,0.4)')}
+                onMouseLeave={e => ((e.currentTarget as HTMLElement).style.borderColor = '#163530')}
               >
                 <img
                   src={src}
@@ -50,20 +69,22 @@ export function AppScreens() {
                   loading="lazy"
                 />
               </div>
-              <p className="mt-2 text-sm font-medium text-adopet-text-secondary text-center w-full">
+              <p
+                className="mt-3 text-xs font-medium text-center w-full transition-colors"
+                style={{ color: '#7AA39B' }}
+              >
                 {label}
               </p>
             </div>
           ))}
         </div>
       </div>
+
       <style>{`
-        .carousel-track:hover {
-          animation-play-state: paused;
-        }
+        .carousel-track:hover { animation-play-state: paused; }
         @keyframes carousel-scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-${TRACK_OFFSET}px); }
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-${OFFSET}px); }
         }
       `}</style>
     </section>

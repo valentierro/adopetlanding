@@ -1,56 +1,43 @@
-import { trackAppStoreClick, trackPlayStoreClick } from '../analytics/gtag';
-import { IOS_APP_STORE_URL, PLAY_STORE_URL } from '../constants/stores';
+import { StoreBadges } from '../components/StoreBadges';
 
 export function Footer() {
   return (
-    <footer className="py-12 px-6 bg-adopet-text-primary text-white/90">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex items-center gap-2">
-          <img src="/logo.png" alt="Adopet" className="h-10 w-auto opacity-90" />
-          <span className="font-semibold text-white">Adopet</span>
+    <footer className="px-6 pb-8" style={{ background: '#04100E' }}>
+      <div className="max-w-6xl mx-auto">
+        <div className="h-px mb-10" style={{ background: 'linear-gradient(to right,transparent,#163530,transparent)' }} />
+
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-6">
+          <a href="#" className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
+            <img src="/logo.png" alt="Adopet" className="h-9 w-auto" />
+            <span className="font-bold" style={{ color: '#A8C5BF' }}>Adopet</span>
+          </a>
+
+          <nav className="flex flex-wrap items-center justify-center gap-6 text-sm">
+            {[
+              { href: '#apoie', label: 'Apoie a Adopet' },
+              { href: '#privacidade', label: 'Privacidade' },
+              { href: '#termos', label: 'Termos' },
+            ].map(({ href, label }) => (
+              <a
+                key={label}
+                href={href}
+                className="transition-colors"
+                style={{ color: '#7AA39B' }}
+                onMouseEnter={e => (e.currentTarget.style.color = '#0FBA9E')}
+                onMouseLeave={e => (e.currentTarget.style.color = '#7AA39B')}
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
+
+          <StoreBadges location="footer" size="sm" />
         </div>
-        <nav className="flex flex-wrap items-center justify-center gap-6 text-sm">
-          <a
-            href="#apoie"
-            className="hover:text-white transition-colors"
-          >
-            Apoie a Adopet
-          </a>
-          <a
-            href="#privacidade"
-            className="hover:text-white transition-colors"
-          >
-            Política de privacidade
-          </a>
-          <a
-            href="#termos"
-            className="hover:text-white transition-colors"
-          >
-            Termos de uso
-          </a>
-          <a
-            href={PLAY_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackPlayStoreClick('footer')}
-            className="hover:text-white transition-colors"
-          >
-            Google Play
-          </a>
-          <a
-            href={IOS_APP_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackAppStoreClick('footer')}
-            className="hover:text-white transition-colors"
-          >
-            App Store
-          </a>
-        </nav>
-      </div>
-      <div className="max-w-6xl mx-auto mt-6 pt-6 border-t border-white/20 text-center text-sm text-white/70 space-y-1">
-        <p>© {new Date().getFullYear()} Adopet. Adoção responsável na palma da mão.</p>
-        <p>VALENTIN DOS SANTOS LTDA (VSQuality) — CNPJ 38.225.533/0001-44</p>
+
+        <div className="text-center text-xs space-y-1" style={{ color: '#4B6E68' }}>
+          <p>© {new Date().getFullYear()} Adopet. Adoção responsável na palma da mão.</p>
+          <p>VALENTIN DOS SANTOS LTDA (VSQuality) — CNPJ 38.225.533/0001-44</p>
+        </div>
       </div>
     </footer>
   );

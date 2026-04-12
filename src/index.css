@@ -3,11 +3,42 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
+
   body {
-    @apply font-sans text-adopet-text-primary antialiased;
-    background-color: #e5edea;
+    @apply font-sans antialiased;
+    background-color: #04100E;
+    color: #FFFFFF;
   }
+
+  ::selection {
+    background-color: rgba(15, 186, 158, 0.3);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar       { width: 5px; }
+  ::-webkit-scrollbar-track { background: #04100E; }
+  ::-webkit-scrollbar-thumb { background: #163530; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #0FBA9E; }
+}
+
+@layer utilities {
+  /* Gradient text helpers — using plain CSS, NOT @apply, to avoid Tailwind class-lookup issues */
+  .text-grad-teal {
+    background: linear-gradient(90deg, #0FBA9E 0%, #34D4B8 50%, #0FBA9E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-grad-orange {
+    background: linear-gradient(90deg, #F4732A 0%, #F99060 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Semi-readable muted text — always safe on dark bg */
+  .text-muted  { color: #7AA39B; }
+  .text-soft   { color: #C4DDD8; }
 }
