@@ -3,9 +3,30 @@
     "apps": [],
     "details": [
       {
-        "appID": "TEAMID.br.com.adopet.app",
-        "paths": ["/pet/*"]
+        "appID": "B5R42VMMVJ.br.com.adopet.app",
+        "paths": [
+          "/pet/*",
+          "/feiras/*",
+          "/responder/*"
+        ],
+        "components": [
+          {
+            "/": "/pet/*",
+            "comment": "Deep link: pet detail"
+          },
+          {
+            "/": "/feiras/*",
+            "comment": "Deep link: adoption fair detail"
+          },
+          {
+            "/": "/responder/*",
+            "comment": "Guardian magic link"
+          }
+        ]
       }
     ]
+  },
+  "webcredentials": {
+    "apps": ["B5R42VMMVJ.br.com.adopet.app"]
   }
 }

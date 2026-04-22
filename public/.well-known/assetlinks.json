@@ -5,7 +5,8 @@
       "namespace": "android_app",
       "package_name": "br.com.adopet.app",
       "sha256_cert_fingerprints": [
-        "REPLACE_WITH_SHA256_FINGERPRINT_FROM_EAS_OR_PLAY_CONSOLE"
+        "D6:6E:B4:50:3F:AC:BA:5A:64:6B:00:D6:4E:FC:C9:87:4F:56:1E:6E:D9:32:24:B6:8F:3F:D0:49:D9:87:ED:09",
+        "A7:20:5F:3D:9D:F1:1E:3F:E0:F3:7F:42:DB:8F:A9:76:44:7D:66:0D:8A:C4:1B:A6:61:5A:C7:AE:03:99:62:33"
       ]
     }
   }
