@@ -15,6 +15,12 @@ export function Header() {
             Como funciona
           </a>
           <a
+            href="#parceiros"
+            className="text-adopet-text-secondary hover:text-adopet-primary font-medium transition-colors hidden md:inline"
+          >
+            Instituições
+          </a>
+          <a
             href={PLAY_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
